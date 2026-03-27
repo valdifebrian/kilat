@@ -10,16 +10,14 @@ Windows Registry Editor Version 5.00
 [HKEY_CLASSES_ROOT\Directory\Background\shell\KILAT]
 @="Run KILAT Here"
 "Icon"="python.exe"
-"Position"="bottom"
 
 [HKEY_CLASSES_ROOT\Directory\Background\shell\KILAT\command]
-@="\"%~dp0run_kilat_here.bat\" \"%V\""
+@="\"C:\\Kodingan\\KILAT\\installers\\run_kilat_here.bat\" \"%V\""
 
 ; Option 2: Right-click on Folder itself
 [HKEY_CLASSES_ROOT\Directory\shell\KILAT]
 @="Run KILAT Here"
 "Icon"="python.exe"
-"Position"="bottom"
 
 [HKEY_CLASSES_ROOT\Directory\shell\KILAT\command]
-@="\"%~dp0run_kilat_here.bat\" \"%V\""
+@="\"C:\\Kodingan\\KILAT\\installers\\run_kilat_here.bat\" \"%V\""
