@@ -1,0 +1,123 @@
+{
+  "version": "0.0.1",
+  "name": "KILAT",
+  "full_name": "Kodingan Intelligent Local AI Tool",
+  "llama_server": {
+    "url": "http://127.0.0.1:1234/v1",
+    "model": "OmniCoder-VL-9B-q8_0.gguf",
+    "temperature": 0.65,
+    "max_tokens": 8192,
+    "timeout": 300,
+    "context_length": 327680
+  },
+  "agent": {
+    "max_iterations": 5,
+    "backup_files": true,
+    "auto_test": true,
+    "history_dir": "{PROJECT_ROOT}/data/history",
+    "summarization_threshold": 100000,
+    "streaming": true,
+    "default_mode": "code"
+  },
+  "modes": {
+    "code": {
+      "description": "Full code editing capabilities",
+      "tools": "all",
+      "auto_approve": ["read_file", "search_files", "list_files"]
+    },
+    "architect": {
+      "description": "System design and planning",
+      "tools": "read_only",
+      "auto_approve": ["read_file", "search_files", "list_files", "execute_command"]
+    },
+    "ask": {
+      "description": "Quick Q&A, read-only",
+      "tools": "none",
+      "auto_approve": []
+    }
+  },
+  "godot": {
+    "cli_path": "C:\\Kodingan\\Godot\\Godot_v4.6.1-stable_mono_win64_console.exe",
+    "editor_path": "C:\\Kodingan\\Godot\\Godot_v4.6.1-stable_mono_win64.exe",
+    "project_path": "C:\\Kodingan\\Godot",
+    "mcp_server_script": "{PROJECT_ROOT}/kilat_mcp/godot_mcp_server.py"
+  },
+  "mcp_servers": {
+    "filesystem": {
+      "enabled": true,
+      "transport": "stdio",
+      "command": "C:\\Program Files\\nodejs\\npx.cmd",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "{PROJECT_ROOT}"
+      ],
+      "description": "File operations in C:\\Kodingan"
+    },
+    "memory": {
+      "enabled": true,
+      "transport": "stdio",
+      "command": "C:\\Program Files\\nodejs\\npx.cmd",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ],
+      "description": "Long-term memory storage"
+    },
+    "context7": {
+      "enabled": true,
+      "transport": "stdio",
+      "command": "C:\\Program Files\\nodejs\\npx.cmd",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "description": "Documentation lookup (1000 free requests/month)"
+    },
+    "sequential_thinking": {
+      "enabled": true,
+      "transport": "stdio",
+      "command": "C:\\Program Files\\nodejs\\npx.cmd",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ],
+      "description": "Complex reasoning and problem decomposition"
+    },
+    "duckduckgo": {
+      "enabled": true,
+      "transport": "stdio",
+      "command": "C:\\Program Files\\nodejs\\npx.cmd",
+      "args": [
+        "-y",
+        "duckduckgo-mcp-server"
+      ],
+      "description": "Web search (free, no API key)"
+    },
+    "playwright": {
+      "enabled": true,
+      "transport": "stdio",
+      "command": "C:\\Program Files\\nodejs\\npx.cmd",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ],
+      "description": "Browser automation (local, free)"
+    },
+    "godot": {
+      "enabled": true,
+      "transport": "stdio",
+      "command": "py",
+      "args": [
+        "-3.12",
+        "{PROJECT_ROOT}/kilat_mcp/godot_mcp_server.py"
+      ],
+      "description": "Custom Godot 4.6.1 Mono automation"
+    }
+  },
+  "paths": {
+    "workspace": "{PROJECT_ROOT}",
+    "models": "C:\\LLMModel",
+    "mmproj": "C:\\LLMModel\\mmproj-OmniCoder-VL-9B-BF16.gguf"
+  }
+}

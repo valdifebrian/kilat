@@ -1,0 +1,38 @@
+Windows Registry Editor Version 5.00
+
+; KILAT v0.0.1 - Windows 11 MODERN Context Menu
+; Forces KILAT to appear in FIRST-LEVEL menu (not under "Show more options")
+
+; For Directory right-click
+[HKEY_CLASSES_ROOT\Directory\shell\KILAT]
+@="Run KILAT Here"
+"Icon"="C:\\Users\\valdi\\AppData\\Local\\Programs\\Python\\Python312\\python.exe,0"
+"Position"="bottom"
+"CommandStateSync"=""
+"CommandStateHandler"="{3756e7f5-e514-4776-a32b-eb24bcfee35a}"
+"Description"="Run KILAT AI assistant in this folder"
+"NeverDefault"=""
+
+[HKEY_CLASSES_ROOT\Directory\shell\KILAT\command]
+@="C:\\Kodingan\\KILAT\\kilat-launcher.bat \"%V\""
+
+; For Directory background right-click  
+[HKEY_CLASSES_ROOT\Directory\Background\shell\KILAT]
+@="Run KILAT Here"
+"Icon"="C:\\Users\\valdi\\AppData\\Local\\Programs\\Python\\Python312\\python.exe,0"
+"Position"="bottom"
+"CommandStateSync"=""
+"CommandStateHandler"="{3756e7f5-e514-4776-a32b-eb24bcfee35a}"
+"Description"="Run KILAT AI assistant in this folder"
+"NeverDefault"=""
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\KILAT\command]
+@="C:\\Kodingan\\KILAT\\kilat-launcher.bat \"%V\""
+
+; Windows 11 specific - Force modern menu
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Directory\shell\KILAT]
+@="Run KILAT Here"
+"Icon"="C:\\Users\\valdi\\AppData\\Local\\Programs\\Python\\Python312\\python.exe,0"
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Directory\shell\KILAT\command]
+@="C:\\Kodingan\\KILAT\\kilat-launcher.bat \"%V\""

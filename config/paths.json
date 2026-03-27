@@ -1,0 +1,14 @@
+{
+  "root": "C:/Kodingan/KILAT",
+  "app": "C:/Kodingan/KILAT/app",
+  "config": "C:/Kodingan/KILAT/config",
+  "mcp": "C:/Kodingan/KILAT/kilat_mcp",
+  "data": "C:/Kodingan/KILAT/data",
+  "assets": "C:/Kodingan/KILAT/assets",
+  "docs": "C:/Kodingan/KILAT/docs",
+  "installers": "C:/Kodingan/KILAT/installers",
+  "sources": "C:/Kodingan/KILAT/sources",
+  "venv": "C:/Kodingan/KILAT/venv",
+  "python": "C:/Users/valdi/AppData/Local/Programs/Python/Python312/python.exe",
+  "python_version": "3.12"
+}

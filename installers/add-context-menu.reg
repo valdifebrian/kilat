@@ -1,0 +1,19 @@
+Windows Registry Editor Version 5.00
+
+; KILAT v0.0.1 - Add "Run KILAT Here" to folder right-click menu
+[HKEY_CLASSES_ROOT\Directory\shell\KILAT]
+@="Run KILAT Here"
+"Icon"="C:\\Kodingan\\KILAT\\assets\\roograph_icon.png"
+"Position"="bottom"
+
+[HKEY_CLASSES_ROOT\Directory\shell\KILAT\command]
+@="cmd.exe /c \"cd /d \\\"%V\\\" && start \\\"KILAT - %V\\\" py -3.12 C:\\Kodingan\\KILAT\\app\\kilat.py \\\"%V\\\"\""
+
+; Also add to folder background right-click menu
+[HKEY_CLASSES_ROOT\Directory\Background\shell\KILAT]
+@="Run KILAT Here"
+"Icon"="C:\\Kodingan\\KILAT\\assets\\roograph_icon.png"
+"Position"="bottom"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\KILAT\command]
+@="cmd.exe /c \"cd /d \\\"%V\\\" && start \\\"KILAT - %V\\\" py -3.12 C:\\Kodingan\\KILAT\\app\\kilat.py \\\"%V\\\"\""

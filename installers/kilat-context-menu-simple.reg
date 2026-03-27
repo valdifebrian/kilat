@@ -1,0 +1,18 @@
+Windows Registry Editor Version 5.00
+
+; KILAT v0.0.1 - Simple Context Menu for Windows 11
+; Works for both folder AND background right-click
+
+; Folder right-click
+[HKEY_CLASSES_ROOT\Directory\shell\KILAT]
+@="Run KILAT Here"
+
+[HKEY_CLASSES_ROOT\Directory\shell\KILAT\command]
+@="C:\\Kodingan\\KILAT\\kilat-launcher.bat \"%V\""
+
+; Background right-click
+[HKEY_CLASSES_ROOT\Directory\Background\shell\KILAT]
+@="Run KILAT Here"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\KILAT\command]
+@="C:\\Kodingan\\KILAT\\kilat-launcher.bat \"%V\""

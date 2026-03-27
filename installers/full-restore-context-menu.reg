@@ -1,0 +1,55 @@
+Windows Registry Editor Version 5.00
+
+; FULL RESTORE - Windows 11 Default Context Menus + KILAT
+
+; ============================================
+; DIRECTORY RIGHT-CLICK MENU
+; ============================================
+
+; Open
+[HKEY_CLASSES_ROOT\Directory\shell\Open]
+@="Open"
+
+; Open in new window
+[HKEY_CLASSES_ROOT\Directory\shell\OpenNewWindow]
+@="Open in new window"
+
+; Pin to Quick access
+[HKEY_CLASSES_ROOT\Directory\shell\pintohome]
+@="Pin to Quick access"
+
+; ============================================
+; DIRECTORY BACKGROUND RIGHT-CLICK MENU
+; ============================================
+
+; View
+[HKEY_CLASSES_ROOT\Directory\Background\shell\Display]
+@="View"
+
+; Sort by
+[HKEY_CLASSES_ROOT\Directory\Background\shell\SortBy]
+@="Sort by"
+
+; Refresh
+[HKEY_CLASSES_ROOT\Directory\Background\shell\Refresh]
+@="Refresh"
+
+; ============================================
+; KILAT - Add our custom menu
+; ============================================
+
+[HKEY_CLASSES_ROOT\Directory\shell\KILAT]
+@="Run KILAT Here"
+"Icon"="C:\\Users\\valdi\\AppData\\Local\\Programs\\Python\\Python312\\python.exe,0"
+"Position"="bottom"
+
+[HKEY_CLASSES_ROOT\Directory\shell\KILAT\command]
+@="C:\\Kodingan\\KILAT\\kilat-launcher.bat \"%V\""
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\KILAT]
+@="Run KILAT Here"
+"Icon"="C:\\Users\\valdi\\AppData\\Local\\Programs\\Python\\Python312\\python.exe,0"
+"Position"="bottom"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\KILAT\command]
+@="C:\\Kodingan\\KILAT\\kilat-launcher.bat \"%V\""
