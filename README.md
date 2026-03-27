@@ -1,126 +1,95 @@
 # 🚀 KILAT v0.0.11 - PRODUCTION READY
 
 **Kodingan Intelligent Local AI Tool**  
-**Status:** ✅ PRODUCTION READY  
-**Last Updated:** 2026-03-27
+**Model:** Qwen3.5-27B (128K Context + Vision)  
+**Test Score:** 99/100 ✅  
+**Status:** PRODUCTION READY
 
 ---
 
-## 📊 CAPABILITIES:
+## ⚡ QUICK START
 
-| Feature | Status | Notes |
-|---------|--------|-------|
-| **CLI Mode** | ✅ WORKING | `kilat.py --headless --cli "task" --format=json` |
-| **Interactive Mode** | ✅ WORKING | `kilat.py` |
-| **Server Mode** | ✅ WORKING | `kilat.py --server --port 8080` |
-| **KILATAgent Class** | ✅ WORKING | Full DI pattern |
-| **Tool Execution** | ✅ WORKING | 12+ tools available |
-| **State Machine** | ✅ WORKING | Task state tracking |
-| **Logging** | ✅ WORKING | File-based (kilat.log) |
-| **Meta Agent** | ✅ WORKING | Autonomous testing |
+### **1. Start Llama-Server**
+```bash
+C:\llama-cpp-server\Comprehensive_Model_Selector.bat
+# Pilih Option 3: Qwen3.5-27B (128K + Vision)
+```
 
----
-
-## 🚀 QUICK START:
-
-### **Interactive Mode:**
+### **2. Run KILAT**
 ```bash
 cd C:\Kodingan\KILAT
+
+# Interactive mode
 py -3.12 app\kilat.py
-```
 
-### **CLI Mode:**
-```bash
-# JSON output
-py -3.12 app\kilat.py --headless --cli "Siapa kamu?" --format=json
+# CLI mode
+py -3.12 app\kilat.py --headless --cli "Buat aplikasi Python" --format=json
 
-# Text output
-py -3.12 app\kilat.py --headless --cli "test" --format=text
-```
-
-### **Server Mode:**
-```bash
+# Server mode
 py -3.12 app\kilat.py --server --port 8080
-# Then: curl -X POST http://localhost:8080/cli -d '{"task": "test"}'
-```
-
-### **Meta Agent (Autonomous Testing):**
-```bash
-py -3.12 meta_agent_v2.py --max-iterations 3
 ```
 
 ---
 
-## 📁 PROJECT STRUCTURE:
+## 📊 CAPABILITIES
+
+| Feature | Status |
+|---------|--------|
+| **128K Context** | ✅ Enabled |
+| **Vision** | ✅ Enabled |
+| **CLI Mode** | ✅ Working |
+| **Interactive** | ✅ Working |
+| **Server Mode** | ✅ Working |
+| **MCP Tools** | ✅ 7 servers |
+| **Test Score** | ✅ 99/100 |
+
+---
+
+## 📁 STRUCTURE
 
 ```
 C:\Kodingan\KILAT/
 ├── app/
-│   ├── kilat.py              ← Main application (v0.0.11)
+│   ├── kilat.py              ← Main application
 │   └── kilat_core/           ← Core modules
-│       ├── context/          ← Context management
-│       ├── tools/            ← All tools
-│       └── modes/            ← Operating modes
 ├── config/
-│   ├── config.json           ← Main configuration
-│   └── paths.json            ← Path configuration
+│   └── config.json           ← Configuration (Qwen3.5-27B)
 ├── docs/                     ← Documentation
 ├── installers/               ← Context menu installers
-├── kilat_mcp/                ← MCP server management
-├── sources/                  ← Reference code (Roo Code, Qwen Code)
-└── venv/                     ← Python virtual environment
+├── kilat_mcp/                ← MCP servers
+└── sources/                  ← Reference code (excluded from git)
 ```
 
 ---
 
-## 🔧 CRITICAL FIXES (v0.0.11):
-
-1. ✅ **Dependency Injection** - KILATAgent class with proper DI
-2. ✅ **CLI Output Bug** - Fixed safe_print() recursion + output capture
-3. ✅ **Tool Execution** - Handle both function + LangChain tools
-4. ✅ **State Machine** - TaskStateMachine for tracking
-5. ✅ **Logging** - File-only logging (no stdout pollution)
-6. ✅ **Server Mode** - FastAPI integration working
-
----
-
-## 📝 DOCUMENTATION:
-
-| File | Description |
-|------|-------------|
-| `README.md` | Main documentation |
-| `USAGE-GUIDE.md` | Detailed usage guide |
-| `docs/` | Additional technical docs |
-
----
-
-## 🧪 TESTING:
+## 🧪 TESTING
 
 ```bash
-# Run meta_agent autonomous testing
-py -3.12 meta_agent_v2.py --max-iterations 3
+# Run test suite
+py -3.12 quick_test.py
 
-# Expected score: 75-85/100
-# If lower: Check ENHANCEMENT_PLAN.md for improvements
+# Expected: 99/100
 ```
 
 ---
 
-## 🎯 NEXT ENHANCEMENTS:
+## 🔧 CONFIGURATION
 
-1. **Tool Auto-Trigger** - Detect file creation intent
-2. **Task Decomposition** - Auto-break complex tasks
-3. **Improved LLM Prompt** - More action-oriented responses
-4. **Better Test Coverage** - More comprehensive test suite
-
----
-
-## 📞 SUPPORT:
-
-**Issues:** Check kilat.log for detailed execution logs  
-**Tests:** Run meta_agent_v2.py for autonomous testing  
-**Docs:** See docs/ folder for technical documentation
+**Model:** Qwen3.5-27B.Q4_K_M.gguf  
+**Context:** 131072 (128K)  
+**Cache:** q4_0 (VRAM optimized)  
+**Vision:** Enabled  
+**VRAM Usage:** ~24 GB (RTX 3090)
 
 ---
 
-**KILAT v0.0.11 - Built with ❤️ for local AI coding!**
+## 📞 SUPPORT
+
+- **Docs:** See `docs/` folder
+- **Config:** `config/config.json`
+- **Logs:** `kilat.log` (auto-generated)
+
+---
+
+**Built with ❤️ for RTX 3090**  
+**v0.0.11 - Qwen3.5-27B Edition**

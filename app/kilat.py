@@ -226,6 +226,15 @@ class KILATAgent:
         
         if was_planned:
             messages = [HumanMessage(content=enhanced_task)]
+        
+        # ADD: Detect file creation intent and add hint
+        if await self._detect_file_creation_intent(task):
+            logger.info("File creation intent detected, adding hint...")
+            messages.append(
+                HumanMessage(
+                    content="💡 HINT: If this task requires creating files, use write_to_file or write_to_file_simple tool immediately. Don't explain, just create the files."
+                )
+            )
             state_machine.transition_to(TaskState.EXECUTING, {
                 "planned": True,
                 "todos": len(self.todo_manager.todos)
@@ -419,6 +428,15 @@ Steps:""")
                         return f"Execute plan with todos: {task}", True
         
         return task, False
+    
+    async def _detect_file_creation_intent(self, task: str) -> bool:
+        """Detect if task requires file creation"""
+        file_keywords = [
+            "buat", "create", "buatkan", "write", "generate",
+            "file", "code", "script", "program", "simpan", "save",
+            "aplikasi", "application", "project", "lengkap"
+        ]
+        return any(kw in task.lower() for kw in file_keywords)
 
 # PATCH_4: Todo List System (like Roo Code)
 from typing import TypedDict, Literal
@@ -1063,7 +1081,9 @@ async def main():
                 json_output = json.dumps(result, indent=2, ensure_ascii=True, default=str)
                 print(json_output, flush=True)
             else:
-                print(result.get("output", ""), flush=True)
+                # For text mode, also use ASCII
+                output_text = result.get("output", "").encode('ascii', errors='replace').decode('ascii')
+                print(output_text, flush=True)
             
             # Ensure flush before exit
             sys.stdout.flush()

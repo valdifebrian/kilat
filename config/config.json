@@ -1,14 +1,22 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.11",
   "name": "KILAT",
   "full_name": "Kodingan Intelligent Local AI Tool",
   "llama_server": {
     "url": "http://127.0.0.1:1234/v1",
-    "model": "OmniCoder-VL-9B-q8_0.gguf",
+    "model": "Qwen3.5-27B.Q4_K_M.gguf",
     "temperature": 0.65,
     "max_tokens": 8192,
     "timeout": 300,
-    "context_length": 327680
+    "context_length": 131072,
+    "cache_type": "q4_0",
+    "vision_enabled": true
+  },
+  "models": {
+    "MODEL_QWEN_27B": "Qwen3.5-27B.Q4_K_M.gguf",
+    "MMPROJ_QWEN_27B": "mmproj-OmniCoder-VL-9B-BF16.gguf",
+    "MODEL_OMNICODER_9B": "OmniCoder-VL-9B-q8_0.gguf",
+    "MMPROJ_OMNICODER_9B": "mmproj-OmniCoder-VL-9B-BF16.gguf"
   },
   "agent": {
     "max_iterations": 5,
