@@ -1,0 +1,22 @@
+Windows Registry Editor Version 5.00
+
+; ============================================================================
+; KILAT - Add "Run KILAT Here" to Windows Explorer Context Menu
+; This adds to CLASSIC context menu (shows directly, no "Show more options")
+; ============================================================================
+
+; Option 1: Right-click on Folder (classic menu - shows directly)
+[HKEY_CLASSES_ROOT\Directory\shell\KILAT]
+@="Run KILAT Here"
+"Icon"="python.exe"
+
+[HKEY_CLASSES_ROOT\Directory\shell\KILAT\command]
+@="\"C:\\Kodingan\\KILAT\\installers\\run_kilat_here.bat\" \"%V\""
+
+; Option 2: Right-click on Folder Background (classic menu - shows directly)
+[HKEY_CLASSES_ROOT\Directory\Background\shell\KILAT]
+@="Run KILAT Here"
+"Icon"="python.exe"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\KILAT\command]
+@="\"C:\\Kodingan\\KILAT\\installers\\run_kilat_here.bat\" \"%V\""
