@@ -1098,8 +1098,18 @@ async def main():
     
     # INTERACTIVE MODE
     safe_print(colorama.Fore.CYAN + "=" * 70)
-    safe_print("🚀 KILAT v0.0.6 - COMPLETE PHASE 3 + CLI + SERVER MODE")
+    safe_print("🚀 KILAT v0.0.11 - QWEN3.5-27B EDITION")
     safe_print("=" * 70)
+
+    # Initialize LLM for interactive mode
+    llm = ChatOpenAI(
+        base_url=CONFIG["llama_server"]["url"],
+        api_key="dummy",
+        model=CONFIG["llama_server"]["model"],
+        temperature=CONFIG["llama_server"]["temperature"],
+        max_tokens=CONFIG["llama_server"]["max_tokens"],
+        timeout=CONFIG["llama_server"]["timeout"]
+    )
 
     # Initialize KILAT Core & Supercharge tools first
     base_tools = KILAT_CORE_TOOLS + LEGACY_TOOLS + SUPERCHARGE_TOOLS
