@@ -1205,12 +1205,14 @@ async def main():
     # Key Bindings for prompt_toolkit
     kb = KeyBindings()
     modes_list = ["code", "architect", "ask", "plan"]
-    
+
     @kb.add('tab')
     def _cycle_mode(event):
         nonlocal active_mode
         current_idx = modes_list.index(active_mode) if active_mode in modes_list else 0
         active_mode = modes_list[(current_idx + 1) % len(modes_list)]
+        # Show mode change
+        print(f"\n🔄 Switched to {active_mode} mode")
         # Force redraw of the prompt
         event.app.invalidate()
 
