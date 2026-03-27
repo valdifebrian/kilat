@@ -1,5 +1,9 @@
 Windows Registry Editor Version 5.00
 
-; KILAT v0.0.1 - Remove "Run KILAT Here" from folder right-click menu
-[-HKEY_CLASSES_ROOT\Directory\shell\KILAT]
+; ============================================================================
+; KILAT - Remove Context Menu Options
+; Run this to uninstall the context menu integration
+; ============================================================================
+
 [-HKEY_CLASSES_ROOT\Directory\Background\shell\KILAT]
+[-HKEY_CLASSES_ROOT\Directory\shell\KILAT]
