@@ -39,10 +39,10 @@ logger = logging.getLogger(__name__)
 # Helper function for conditional printing
 def safe_print(*args, **kwargs):
     """Print only if not in CLI headless mode"""
-    import sys
+    import builtins
     # Check if we're in headless CLI mode (stdout captured)
     if not (len(sys.argv) > 1 and '--headless' in sys.argv and '--cli' in sys.argv):
-        safe_print(*args, **kwargs)
+        builtins.print(*args, **kwargs)
 
 # Ensure project root and app directory are in sys.path
 PROJECT_ROOT = Path(__file__).parent.parent.resolve()
